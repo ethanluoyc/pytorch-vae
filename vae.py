@@ -113,7 +113,7 @@ if __name__ == '__main__':
             loss = criterion(dec, inputs) + ll
             loss.backward()
             optimizer.step()
-            l = loss.data[0]
+            l = loss.data.item()
         print(epoch, l)
 
     plt.imshow(vae(inputs).data[0].numpy().reshape(28, 28), cmap='gray')
